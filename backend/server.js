@@ -10,7 +10,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'), (err) => {
     if (err) {
       console.error("Error serving index.html:", err);
-      res.status(500).send("Something went wrong.");
+      console.log("Current directory:", __dirname);
+      console.log("Expected path:", path.join(__dirname, '../frontend/index.html'));
+      res.status(500).send("Frontend file not found. Please check the folder structure.");
     }
   });
 });
